@@ -93,33 +93,34 @@
 	<script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbxSm0vvix07jE7N2CEEmMf7mE5uh4AlWItyfwKkK8dG1zRW-0rdze_TyCyBZ04ln_VY/exec";
 
-const form = document.getElementById("contactForm");
+document
+.getElementById("contactForm")
+.addEventListener("submit", async function(e){
 
-form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    try {
-        const response = await fetch(scriptURL, {
-            method: "POST",
-            body: new FormData(form)
+    const formData = new FormData(this);
+
+    try{
+
+        await fetch(scriptURL,{
+            method:"POST",
+            mode:"no-cors",
+            body:formData
         });
 
-        console.log("Status:", response.status);
+        alert("Thank you! We will contact you soon.");
 
-        const text = await response.text();
-        console.log("Response:", text);
+        this.reset();
 
-        if (!response.ok) {
-            throw new Error(text);
-        }
+    }catch(err){
 
-        alert("Thank you! Your inquiry has been submitted.");
-        form.reset();
+        console.log(err);
 
-    } catch (error) {
-        console.error(error);
-        alert(error.message);
+        alert("Submission Failed");
+
     }
+
 });
 </script>
 </body>
