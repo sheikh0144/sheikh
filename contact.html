@@ -10,28 +10,7 @@
 	<script type="text/javascript" src="js/mobile.js"></script>
 </head>
 <body>
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwlv7byw8IR5RCkec1Rkcw6DQE6H7r0f5xFlEcPitfQOovdUo9ryBeFpFqQtZDPb5GQ/exec";
 
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: new FormData(form)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert("Thank you! Your inquiry has been submitted.");
-        form.reset();
-    })
-    .catch(error => {
-        alert("Error submitting the form.");
-    });
-});
-</script>
 	<div id="header">
 		<a href="index.html" class="logo">
 			<img src="images/logo.jpg" alt="">
@@ -79,7 +58,6 @@ form.addEventListener("submit", function(e) {
     <input type="submit" value="Submit">
 
 </form>
-</form>
 	</div>
 	<div id="footer">
 		<div>
@@ -100,5 +78,27 @@ form.addEventListener("submit", function(e) {
 			</ul>
 		</div>
 	</div>
+	<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwlv7byw8IR5RCkec1Rkcw6DQE6H7r0f5xFlEcPitfQOovdUo9ryBeFpFqQtZDPb5GQ/exec";
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("Thank you! Your inquiry has been submitted.");
+        form.reset();
+    })
+    .catch(error => {
+        alert("Error submitting the form.");
+    });
+});
+</script>
 </body>
 </html>
