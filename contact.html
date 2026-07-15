@@ -35,7 +35,7 @@
 	</div>
 	<div id="body">
 		<h1><span>let's keep in touch</span></h1>
-		<form id="contactForm">
+		<form id="contactForm"       action="https://script.google.com/macros/s/AKfycbxSm0vvix07jE7N2CEEmMf7mE5uh4AlWItyfwKkK8dG1zRW-0rdze_TyCyBZ04ln_VY/exec"       method="POST"       target="hidden_iframe"       onsubmit="submitted=true;">
 
     <input type="text" name="name" placeholder="Full Name" required>
 
@@ -70,6 +70,12 @@
     </button>
 
 </form>
+		<iframe
+    name="hidden_iframe"
+    id="hidden_iframe"
+    style="display:none;"
+    onload="if(submitted){alert('Thank you! Your enquiry has been submitted successfully.'); document.getElementById('contactForm').reset();}">
+</iframe>
 	</div>
 	<div id="footer">
 		<div>
@@ -91,37 +97,10 @@
 		</div>
 	</div>
 	<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxSm0vvix07jE7N2CEEmMf7mE5uh4AlWItyfwKkK8dG1zRW-0rdze_TyCyBZ04ln_VY/exec";
 
-document
-.getElementById("contactForm")
-.addEventListener("submit", async function(e){
-
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    try{
-
-        await fetch(scriptURL,{
-            method:"POST",
-            mode:"no-cors",
-            body:formData
-        });
-
-        alert("Thank you! We will contact you soon.");
-
-        this.reset();
-
-    }catch(err){
-
-        console.log(err);
-
-        alert("Submission Failed");
-
-    }
-
-});
+</script>
+	<script>
+var submitted = false;
 </script>
 </body>
 </html>
