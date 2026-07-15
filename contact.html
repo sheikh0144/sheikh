@@ -35,7 +35,7 @@
 	</div>
 	<div id="body">
 		<h1><span>let's keep in touch</span></h1>
-		<form id="contactForm"       action="https://script.google.com/macros/s/AKfycbxSm0vvix07jE7N2CEEmMf7mE5uh4AlWItyfwKkK8dG1zRW-0rdze_TyCyBZ04ln_VY/exec"       method="POST">
+		<form id="contactForm">
 
     <input type="text" name="name" placeholder="Full Name" required>
 
@@ -44,18 +44,30 @@
     <input type="email" name="email" placeholder="Email Address" required>
 
     <select name="interest" required>
+
         <option value="">Interested For</option>
+
         <option value="Buy Property">Buy Property</option>
+
         <option value="Sell Property">Sell Property</option>
+
         <option value="Rent Property">Rent Property</option>
+
         <option value="Residential Property">Residential Property</option>
+
         <option value="Commercial Property">Commercial Property</option>
+
         <option value="Investment">Investment</option>
+
     </select>
 
-    <textarea name="message" placeholder="Message"></textarea>
+    <textarea
+        name="message"
+        placeholder="Message"></textarea>
 
-    <input type="submit" value="Submit">
+    <button type="submit">
+        Submit
+    </button>
 
 </form>
 	</div>
